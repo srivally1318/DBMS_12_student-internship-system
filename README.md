@@ -1,8 +1,1 @@
 A web-based Student Internship Management System developed using Node.js, Express, and MySQL. It allows students to browse and apply for internships, while administrators can manage internship postings and applications efficiently.
-. Features
-Student registration and login
-Browse available internships
-Apply for internships
-Track application status
-Admin dashboard to manage internships
-Profile management
