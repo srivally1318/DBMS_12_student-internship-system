@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Internships - SIMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="dashboard.html" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            SIMS
+        </a>
+        <div class="nav-links">
+            <a href="view_internships.html" style="color: var(--primary); font-weight: 700;">View Internships</a>
+            <a href="applications.html">My Applications</a>
+            <a href="settings.html">Profile Settings</a>
+            <a href="#" id="logout-btn" class="btn btn-primary btn-small">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>Available Internships</h2>
+        </div>
+        
+        <div class="grid" id="internships-grid">
+            <!-- Internships will be populated here by script.js -->
+        </div>
+    </div>
+
+    <!-- Application Modal -->
+    <div class="modal-overlay" id="application-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Apply for Internship</h3>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+            <form id="apply-form">
+                <input type="hidden" id="internship-id">
+                <div class="form-group">
+                    <label>Internship</label>
+                    <input type="text" id="modal-internship-title" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="apply-name">Full Name</label>
+                    <input type="text" id="apply-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="apply-email">Email</label>
+                    <input type="email" id="apply-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="apply-phone">Phone Number</label>
+                    <input type="tel" id="apply-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="apply-resume">Resume Link</label>
+                    <input type="url" id="apply-resume" placeholder="https://drive.google.com/..." required>
+                </div>
+                <div id="apply-success" class="alert alert-success hidden"></div>
+                <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = requireAuth();
+            if (user) {
+                document.getElementById('apply-name').value = user.name;
+                document.getElementById('apply-email').value = user.email;
+            }
+            renderInternships();
+            initApplicationModal();
+        });
+    </script>
+</body>
+</html>

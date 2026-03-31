@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Applications - SIMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="dashboard.html" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            SIMS
+        </a>
+        <div class="nav-links">
+            <a href="view_internships.html">View Internships</a>
+            <a href="applications.html" style="color: var(--primary); font-weight: 700;">My Applications</a>
+            <a href="settings.html">Profile Settings</a>
+            <a href="#" id="logout-btn" class="btn btn-primary btn-small">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>My Applications</h2>
+        </div>
+        
+        <div class="grid" id="applications-grid">
+            <!-- Applications will be populated here by script.js -->
+        </div>
+        <div id="no-apps-msg" class="hidden text-center mt-4">
+            <p style="color: var(--text-light); margin-bottom: 1rem; font-size: 1.1rem;">You haven't applied to any internships yet.</p>
+            <a href="view_internships.html" class="btn btn-primary">Browse Internships</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            requireAuth();
+            renderApplications();
+        });
+    </script>
+</body>
+</html>

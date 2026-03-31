@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - SIMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            SIMS
+        </a>
+        <div class="nav-links">
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Create an Account</h2>
+                <p>Join SIMS to discover exciting opportunities</p>
+            </div>
+            
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" required minlength="6">
+                </div>
+                <div id="signup-error" class="alert alert-error hidden"></div>
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </form>
+            
+            <p class="text-center mt-4">Already have an account? <a href="login.html" style="color: var(--primary); font-weight: 500;">Login here</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

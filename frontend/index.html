@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Internship Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            SIMS
+        </a>
+        <div class="nav-links" id="guest-nav">
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+        <div class="nav-links hidden" id="user-nav">
+            <a href="dashboard.html" class="btn btn-outline">Dashboard</a>
+            <a href="#" id="logout-btn" class="btn btn-primary">Logout</a>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-content">
+            <h1>Launch Your Career with SIMS</h1>
+            <p>Manage student internships, discover exciting opportunities, and effortlessly track all your applications in one seamless platform.</p>
+            <div class="hero-actions" id="hero-guest-actions">
+                <a href="signup.html" class="btn btn-primary" style="margin-right: 1rem; padding: 1rem 2.5rem; font-size: 1.1rem;">Get Started Now</a>
+                <a href="login.html" class="btn btn-outline" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Login</a>
+            </div>
+             <div class="hero-actions hidden" id="hero-user-actions">
+                <a href="dashboard.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">View Your Dashboard</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

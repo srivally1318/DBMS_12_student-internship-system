@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SIMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="dashboard.html" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            SIMS
+        </a>
+        <div class="nav-links">
+            <a href="view_internships.html">View Internships</a>
+            <a href="applications.html">My Applications</a>
+            <a href="settings.html">Profile Settings</a>
+            <a href="#" id="logout-btn" class="btn btn-primary btn-small">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>Welcome, <span id="user-name-display" style="color: var(--primary);">Student</span>!</h2>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Find Internships</h3>
+                </div>
+                <div class="card-body">
+                    <p>Discover the latest internship opportunities tailored for you, and apply to kickstart your career today.</p>
+                </div>
+                <div class="card-footer" style="justify-content: flex-start;">
+                    <a href="view_internships.html" class="btn btn-primary w-100">Browse Internships</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Track Applications</h3>
+                </div>
+                <div class="card-body">
+                    <p>Check the status of your submitted applications and manage your current prospects in real-time.</p>
+                </div>
+                <div class="card-footer" style="justify-content: flex-start;">
+                    <a href="applications.html" class="btn btn-outline w-100">View Status</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Manage Profile</h3>
+                </div>
+                <div class="card-body">
+                    <p>Update your personal information, resume links, and adjust your account settings seamlessly.</p>
+                </div>
+                <div class="card-footer" style="justify-content: flex-start;">
+                    <a href="settings.html" class="btn btn-outline w-100">Profile Settings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            requireAuth();
+        });
+    </script>
+</body>
+</html>
