@@ -1,43 +1,44 @@
 // backend/app.js
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config();
 
-// ✅ Import MySQL connection
 const dbPromise = require('./db/connection');
-
-// ✅ Import API routes
 const apiRoutes = require('./routes/apiRoutes');
 
 const app = express();
 
-// Middleware
 app.use(cors());
-app.use(express.json()); // Parses JSON request bodies
+app.use(express.json());
 
-// API routes
 app.use('/api', apiRoutes);
 
-// ✅ Serve Static Frontend Files
 app.use(express.static(path.join(__dirname, '../frontend')));
-
-// Catch-all route to serve frontend for unhandled paths
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
-// Initialize server only after MySQL connection succeeds
-dbPromise.then(() => {
-    console.log('✅ MySQL connected successfully');
+const PORT = Number(process.env.PORT) || 5000;
 
-    // Start server
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-        console.log(`🚀 Server running on port ${PORT}`);
-        // ⚠️ Removed Windows-specific browser opening for production
-    });
-}).catch((err) => {
-    console.error('❌ Failed to connect to MySQL:', err.message);
-    process.exit(1); // Exit backend if connection fails
-});
+async function start() {
+    try {
+        await dbPromise;
+        console.log('[db] MySQL connection successful');
+        app.listen(PORT, '0.0.0.0', () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    } catch (err) {
+        console.error('Failed to connect to MySQL:', err.message);
+        if (err.code) console.error('[db] MySQL error code:', err.code);
+        if (err.errno != null) console.error('[db] MySQL errno:', err.errno);
+        if (err.sqlState) console.error('[db] MySQL sqlState:', err.sqlState);
+        console.error(
+            'Hints: set DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT on Render; ' +
+                'do not set PORT manually. In Aiven, allow 0.0.0.0/0 (or public access) for MySQL.'
+        );
+        process.exit(1);
+    }
+}
+
+start();

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Backend for Student Internship Management System",
   "main": "app.js",
+  "engines": {
+    "node": ">=18"
+  },
   "type": "commonjs",
   "scripts": {
     "start": "node app.js",

@@ -1,0 +1,10 @@
+# Render Blueprint — set DB_* variables in the Render dashboard (Environment).
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: student-internship-backend
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start

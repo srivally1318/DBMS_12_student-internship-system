@@ -1,8 +1,7 @@
 // frontend/script.js
 
-// ✅ Update this URL when backend is deployed on Render or Railway
-// For local development, keep 'http://localhost:5000/api'
-const API_BASE = 'https://internship-backend.onrender.com/api';
+// ✅ Use local backend URL for development
+const API_BASE = 'http://localhost:5000/api';  // <- changed from Render URL
 
 document.addEventListener('DOMContentLoaded', () => {
     // Common Setup
@@ -153,5 +152,7 @@ function initializeData() {
     }
 }
 
-// Rest of your script (renderInternships, initApplicationModal, etc.) stays exactly the same
-// ✅ Just make sure all fetch requests use API_BASE
+// ✅ Rest of your script (renderInternships, initApplicationModal, etc.) stays the same
+// Just make sure all fetch requests use API_BASE
+
+    
